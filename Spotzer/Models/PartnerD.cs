@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Spotzer.Models
 {
-    public class PartnerD : IPartner
+    public class PartnerD : OrderRequest, IPartner
     {
         public List<string> Validate(OrderRequest orderRequest)
         {
