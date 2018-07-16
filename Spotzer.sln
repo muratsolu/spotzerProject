@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotzer", "Spotzer\Spotzer.csproj", "{94D39CFE-404C-42BD-991C-F47047A87565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotzer.Tests", "Spotzer.Tests\Spotzer.Tests.csproj", "{0DD0E29D-4E30-4670-AA39-BD61503B7A03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94D39CFE-404C-42BD-991C-F47047A87565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94D39CFE-404C-42BD-991C-F47047A87565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94D39CFE-404C-42BD-991C-F47047A87565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94D39CFE-404C-42BD-991C-F47047A87565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DD0E29D-4E30-4670-AA39-BD61503B7A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD0E29D-4E30-4670-AA39-BD61503B7A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD0E29D-4E30-4670-AA39-BD61503B7A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD0E29D-4E30-4670-AA39-BD61503B7A03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B89E1B4-44FF-4187-B464-276F7BC9A498}
+	EndGlobalSection
+EndGlobal
