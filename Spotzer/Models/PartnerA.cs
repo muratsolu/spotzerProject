@@ -9,10 +9,17 @@ using static Spotzer.Helper.EnumHelper;
 
 namespace Spotzer.Models
 {
-    public class PartnerA : ProcessOrder
+    public class PartnerA : OrderRequest, IPartner
     {
+        // Custom fields
+        public string ContactFirstName { get; set; }
+        public string ContactLastName { get; set; }
+        public string ContactTitle { get; set; }
+        public string ContactPhone { get; set; }
+        public string ContactMobile { get; set; }
+        public string ContactEmail { get; set; }
 
-        public override List<string>  Validate(OrderRequest orderRequest)
+        public List<string> Validate(OrderRequest orderRequest)
         {
             var exceptionList = new List<string>();
 
@@ -24,17 +31,16 @@ namespace Spotzer.Models
             return exceptionList;
         }
 
-        public override BaseResponse Process(OrderRequest orderRequest)
+        public BaseResponse Process()
         {
-            var response =new  BaseResponse();
+            var response = new BaseResponse();
             try
             {
-                response.ErrorList = Validate(orderRequest);
+                response.ErrorList = Validate(this);
 
                 if (response.ErrorList.Count > 0)
                 {
                     response.IsSuccess = false;
-                    response.httpResponseMessage = new HttpResponseMessage(HttpStatusCode.NotAcceptable);
                 }
                 else
                 {
@@ -43,10 +49,9 @@ namespace Spotzer.Models
             catch (Exception ex)
             {
                 //loggin exception to db or somewhere else
-                
+
                 response.ErrorList.Add("Cannot process order, please contact system administrator!");
                 response.IsSuccess = false;
-                response.httpResponseMessage = new HttpResponseMessage(HttpStatusCode.NotAcceptable);
             }
 
             return response;

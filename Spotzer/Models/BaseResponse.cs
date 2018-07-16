@@ -10,6 +10,5 @@ namespace Spotzer.Models
     {
         public bool IsSuccess { get; set; }
         public List<string> ErrorList{ get; set; }
-        public HttpResponseMessage httpResponseMessage { get; set; }
     }
 }

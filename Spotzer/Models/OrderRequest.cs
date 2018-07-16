@@ -15,9 +15,7 @@ namespace Spotzer.Models
         public string TypeOfOrder { get; set; }
         public string SubmittedBy { get; set; }
         public string CompanyID { get; set; }
-        public string ContractFirstName { get; set; }
         public string CompanyName { get; set; }
-        public string ExposureId { get; set; }
         public List<ProductBase> LineItems { get; set; }
     }
 }

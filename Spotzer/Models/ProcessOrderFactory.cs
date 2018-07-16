@@ -1,25 +1,32 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using static Spotzer.Helper.EnumHelper;
 
 namespace Spotzer.Models
 {
     public class ProcessOrderFactory
     {
-        public ProcessOrder CreateInstance(string partner)
+        public IPartner CreateInstance(JObject orderRequest)
         {
+            string partnerCode = orderRequest.GetValue("Partner", StringComparison.InvariantCultureIgnoreCase).Value<string>();
             PartnerEnum partnerEnum;
-            if (Enum.TryParse(partner, out partnerEnum))
+            if (Enum.TryParse(partnerCode, out partnerEnum))
             {
                 switch (partnerEnum)
                 {
                     case PartnerEnum.A:
-                        return new PartnerA();
+                        return orderRequest.ToObject<PartnerA>();
+
                     case PartnerEnum.B:
-                        return new PartnerB();
+                        return orderRequest.ToObject<PartnerB>();
+
                     case PartnerEnum.C:
-                        return new PartnerC();
+                        return orderRequest.ToObject<PartnerC>();
+
                     case PartnerEnum.D:
-                        return new PartnerD();
+                        return orderRequest.ToObject<PartnerD>();
+
                 }
             }
 

@@ -108,7 +108,7 @@
     <Compile Include="Models\PartnerA.cs" />
     <Compile Include="Models\PartnerB.cs" />
     <Compile Include="Models\PartnerD.cs" />
-    <Compile Include="Models\ProcessOrder.cs" />
+    <Compile Include="Models\IPartner.cs" />
     <Compile Include="Models\ProcessOrderFactory.cs" />
     <Compile Include="Models\ProductBase.cs" />
     <Compile Include="Models\WebsiteProduct.cs" />
@@ -141,7 +141,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50772</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50772/</IISUrl>
+          <IISUrl>http://localhost:50773/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

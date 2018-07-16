@@ -1,32 +1,28 @@
-﻿using Spotzer.Models;
+﻿using Newtonsoft.Json.Linq;
+using Spotzer.Helper;
+using Spotzer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 
 namespace Spotzer.Controllers
 {
     public class OrderController : ApiController
     {
-        public BaseResponse OrderProduct(OrderRequest orderRequest)
+        ProcessOrderFactory partnerFactory;
+        public OrderController()
         {
-            BaseResponse response = new BaseResponse();
-            if (!ModelState.IsValid)
-            {
-                response.IsSuccess = false;
-                response.httpResponseMessage = new HttpResponseMessage(HttpStatusCode.BadRequest);
-            }
-            else
-            {
-                ProcessOrderFactory processOrderFactory = new ProcessOrderFactory();
-                ProcessOrder processOrder = null;
-
-                processOrder = processOrderFactory.CreateInstance(orderRequest.Partner);
-
-                processOrder.Process(orderRequest);
-            }
+            partnerFactory = new ProcessOrderFactory();
+        }
+        [HttpPost]
+        public BaseResponse OrderProduct([FromBody]JObject orderJson)
+        {
+            IPartner partner = partnerFactory.CreateInstance(orderJson);
+            var response = partner.Process();
 
             return response;
         }

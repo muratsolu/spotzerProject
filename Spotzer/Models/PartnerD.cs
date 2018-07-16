@@ -5,14 +5,14 @@ using System.Web;
 
 namespace Spotzer.Models
 {
-    public class PartnerD : ProcessOrder
+    public class PartnerD : IPartner
     {
-        public override List<string> Validate(OrderRequest orderRequest)
+        public List<string> Validate(OrderRequest orderRequest)
         {
             throw new NotImplementedException();
         }
 
-        public override BaseResponse Process(OrderRequest orderRequest)
+        public BaseResponse Process()
         {
             throw new NotImplementedException();
         }
