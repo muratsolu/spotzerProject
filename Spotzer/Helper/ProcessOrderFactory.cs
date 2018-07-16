@@ -30,7 +30,7 @@ namespace Spotzer.Models
                 }
             }
 
-            throw new Exception("Invalid Partner");
+            throw new NotSupportedException("Invalid Partner");
         }
     }
 }

@@ -19,12 +19,19 @@ namespace Spotzer.Controllers
             partnerFactory = new ProcessOrderFactory();
         }
         [HttpPost]
-        public BaseResponse OrderProduct([FromBody]JObject orderJson)
+        public IHttpActionResult OrderProduct([FromBody]JObject orderJson)
         {
-            IPartner partner = partnerFactory.CreateInstance(orderJson);
-            var response = partner.Process();
+            try
+            {
+                IPartner partner = partnerFactory.CreateInstance(orderJson);
+                var response = partner.Process();
+                return Content(HttpStatusCode.OK, response);
+            }
+            catch (NotSupportedException ex)
+            {
+                return Content(HttpStatusCode.NotAcceptable, ex.Message);
+            }
 
-            return response;
         }
     }
 }

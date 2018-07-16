@@ -109,7 +109,7 @@
     <Compile Include="Models\PartnerB.cs" />
     <Compile Include="Models\PartnerD.cs" />
     <Compile Include="Models\IPartner.cs" />
-    <Compile Include="Models\ProcessOrderFactory.cs" />
+    <Compile Include="Helper\ProcessOrderFactory.cs" />
     <Compile Include="Models\ProductBase.cs" />
     <Compile Include="Models\WebsiteProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
