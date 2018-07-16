@@ -7,7 +7,7 @@ namespace Spotzer.Models
 {
     public interface IPartner
     {
-        List<string> Validate(OrderRequest orderRequest);
+        List<string> Validate();
 
         BaseResponse Process();
     }

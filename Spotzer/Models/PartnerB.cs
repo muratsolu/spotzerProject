@@ -5,17 +5,19 @@ using System.Web;
 
 namespace Spotzer.Models
 {
-    public class PartnerB : OrderRequest,IPartner
+    public class PartnerB : OrderRequest, IPartner
     {
 
-        public List<string> Validate(OrderRequest orderRequest)
+        public List<string> Validate()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public BaseResponse Process()
         {
-            throw new NotImplementedException();
+            var response = new BaseResponse();
+            response.IsSuccess = true;
+            return response;
         }
     }
 }

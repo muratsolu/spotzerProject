@@ -13,14 +13,44 @@ namespace Spotzer.Models
         public string RelatedOrder { get; set; }
 
 
-        public List<string> Validate(OrderRequest orderRequest)
+        public List<string> Validate()
         {
-            throw new NotImplementedException();
+            var errorList = new List<string>();
+            if (String.IsNullOrEmpty(this.ExposureID))
+                errorList.Add("ExposureID cannot be null");
+            if (String.IsNullOrEmpty(this.UDAC))
+                errorList.Add("UDAC cannot be null");
+            if (String.IsNullOrEmpty(this.RelatedOrder))
+                errorList.Add("RelatedOrder cannot be null");
+
+            return errorList;
         }
 
         public BaseResponse Process()
         {
-            throw new NotImplementedException();
+            var response = new BaseResponse();
+            try
+            {
+                response.ErrorList = Validate();
+
+                if (response.ErrorList.Count > 0)
+                {
+                    response.IsSuccess = false;
+                }
+                else
+                {
+                    response.IsSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //loggin exception to db or somewhere else
+
+                response.ErrorList.Add("Cannot process order, please contact system administrator!");
+                response.IsSuccess = false;
+            }
+
+            return response;
         }
     }
 }

@@ -21,6 +21,9 @@ namespace Spotzer.Controllers
         [HttpPost]
         public IHttpActionResult OrderProduct([FromBody]JObject orderJson)
         {
+            if (orderJson == null)
+                return Content(HttpStatusCode.BadRequest, "Invalid JSON");
+
             try
             {
                 IPartner partner = partnerFactory.CreateInstance(orderJson);
